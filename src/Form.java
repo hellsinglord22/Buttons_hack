@@ -1,6 +1,8 @@
 import sun.text.resources.FormatData_zh_CN;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
 import java.awt.*;
 
 /**
@@ -12,6 +14,7 @@ public class Form extends JPanel {
     private GridBagConstraints formConstrain;
     private JLabel nameLabel;
     private JTextField nameTextField;
+    private Border innerBorder , outerBorder;
 
     /*Constructor*/
     public Form() {
@@ -19,9 +22,12 @@ public class Form extends JPanel {
         formConstrain = new GridBagConstraints();
         nameLabel = new JLabel("Name: ");
         nameTextField = new JTextField(15);
+        innerBorder = BorderFactory.createTitledBorder("hacking form");
+        outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 
         // properties //
         setLayout(new GridBagLayout());
+        setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
 
         // position attributes //
 
