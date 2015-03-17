@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * @Author: Scorpion
@@ -17,6 +19,8 @@ public class Form extends JPanel {
     private Border innerBorder , outerBorder;
     private JList ageList;
     private DefaultListModel ageModel;
+    private JButton okButton;
+
     /*Constructor*/
     public Form() {
         /// Initialize Attributes ///
@@ -24,6 +28,7 @@ public class Form extends JPanel {
         nameLabel = new JLabel("Name: ");
         ageLabel = new JLabel("Age: ");
         nameTextField = new JTextField(15);
+        okButton = new JButton("OK");
         innerBorder = BorderFactory.createTitledBorder("hacking form");
         outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
         ageList = new JList();
@@ -64,6 +69,24 @@ public class Form extends JPanel {
         formConstrain.anchor = GridBagConstraints.LINE_START;
         setCurrentPosition(1, 1);
         add(ageList, formConstrain);
+
+        // third row ///
+
+        // lets change the weight of the row to make it take more space and push other elements to the top
+        formConstrain.weighty = 2;
+        formConstrain.anchor = GridBagConstraints.LINE_END;
+        setCurrentPosition(2, 0);
+        add(okButton, formConstrain);
+
+
+        ///ELEMENT'S BEHAVIOUR ///
+        okButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String ageCategory = (String) ageList.getSelectedValue();
+                System.out.println("Age: " + ageCategory + "\n");
+            }
+        });
 
 
     }
