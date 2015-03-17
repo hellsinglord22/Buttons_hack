@@ -35,9 +35,9 @@ public class Form extends JPanel {
         ageModel = new DefaultListModel();
 
         // add other attributes properties //
-        ageModel.addElement("under 18");
-        ageModel.addElement("18 to 65");
-        ageModel.addElement("Over 65");
+        ageModel.addElement(new AgeCategory(0, "under 18"));
+        ageModel.addElement(new AgeCategory(1, "18 to 65"));
+        ageModel.addElement(new AgeCategory(2, "Over 65"));
         ageList.setModel(ageModel);
 
         ageList.setSelectedIndex(1); /// select the element in the middle
@@ -87,8 +87,8 @@ public class Form extends JPanel {
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String ageCategory = (String) ageList.getSelectedValue();
-                System.out.println("Age: " + ageCategory + "\n");
+                AgeCategory age = (AgeCategory) ageList.getSelectedValue();
+                System.out.println("Age: " + age + "\n");
             }
         });
 
