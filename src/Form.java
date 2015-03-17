@@ -49,6 +49,21 @@ public class Form extends JPanel {
         setLayout(new GridBagLayout());
         setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
 
+        layoutComponents();
+
+        ///ELEMENT'S BEHAVIOUR ///
+        okButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AgeCategory age = (AgeCategory) ageList.getSelectedValue();
+                System.out.println("Age: " + age + "\n");
+            }
+        });
+
+    }
+
+    private void layoutComponents() {
+
         // position attributes //
 
         // PREPOSITIONING PROPERTIES //
@@ -82,15 +97,6 @@ public class Form extends JPanel {
         setCurrentPosition(2, 0);
         add(okButton, formConstrain);
 
-
-        ///ELEMENT'S BEHAVIOUR ///
-        okButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                AgeCategory age = (AgeCategory) ageList.getSelectedValue();
-                System.out.println("Age: " + age + "\n");
-            }
-        });
 
 
     }
