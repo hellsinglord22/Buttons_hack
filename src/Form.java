@@ -66,11 +66,11 @@ public class Form extends JPanel {
         add(nameTextField, formConstrain);
 
         // second row //
-        formConstrain.anchor = GridBagConstraints.LINE_END;
+        formConstrain.anchor = GridBagConstraints.FIRST_LINE_END;
         setCurrentPosition(1, 0);
         add(ageLabel, formConstrain);
 
-        formConstrain.anchor = GridBagConstraints.LINE_START;
+        formConstrain.anchor = GridBagConstraints.FIRST_LINE_START;
         setCurrentPosition(1, 1);
         add(ageList, formConstrain);
 
