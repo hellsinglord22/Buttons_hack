@@ -40,6 +40,10 @@ public class Form extends JPanel {
         ageModel.addElement("Over 65");
         ageList.setModel(ageModel);
 
+        ageList.setSelectedIndex(1); /// select the element in the middle
+        ageList.setSize(110, 70);
+        ageList.setBorder(BorderFactory.createEtchedBorder());
+
 
         // properties //
         setLayout(new GridBagLayout());
