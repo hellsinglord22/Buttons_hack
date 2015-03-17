@@ -103,4 +103,36 @@ public class Form extends JPanel {
     }
 }
 
+class AgeCategory{
+    /*Attributes*/
+    private int id;
+    private String text;
+
+    /*Constructor*/
+    public AgeCategory() {
+        this.id = 0;
+        this.text = null;
+    }
+
+    public AgeCategory(int id, String text) {
+        this.id = id;
+        this.text = text;
+    }
+
+    /*Methods*/
+
+    @Override
+    public String toString() {
+        return text;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getText() {
+        return text;
+    }
+}
+
 
