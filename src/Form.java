@@ -7,6 +7,7 @@ import javax.swing.border.CompoundBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.FormatFlagsConversionMismatchException;
 
 /**
  * @Author: Scorpion
@@ -15,14 +16,16 @@ import java.awt.event.ActionListener;
 public class Form extends JPanel {
     /*Attributes*/
     private GridBagConstraints formConstrain;
-    private JLabel nameLabel,ageLabel, sexLabel;
-    private JTextField nameTextField;
+    private JLabel nameLabel,ageLabel, sexLabel , taxLabel , citizenshipLabel;
+    private JTextField nameTextField, taxField;
     private Border innerBorder , outerBorder;
     private JList ageList;
     private DefaultListModel ageModel;
     private JButton okButton;
     private JComboBox sexComboBox;
     private DefaultComboBoxModel sexModel;
+    private JCheckBox citizenshipCheckBox;
+
 
     /*Constructor*/
     public Form() {
@@ -31,8 +34,12 @@ public class Form extends JPanel {
         nameLabel = new JLabel("Name: ");
         ageLabel = new JLabel("Age: ");
         sexLabel = new JLabel("Sex: ");
+        citizenshipLabel = new JLabel("Citizenship: ");
+        taxLabel = new JLabel("Tax id: ");
         nameTextField = new JTextField(15);
+        taxField = new JTextField(15);
         okButton = new JButton("OK");
+        citizenshipCheckBox = new JCheckBox();
         innerBorder = BorderFactory.createTitledBorder("hacking form");
         outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
         ageList = new JList();
@@ -86,7 +93,7 @@ public class Form extends JPanel {
         formConstrain.weightx = 0.1 ;
         formConstrain.weighty = 0.1;
 
-        // first row //
+        // 1st row //
         formConstrain.anchor = GridBagConstraints.LINE_END;
         setCurrentPosition(0, 0);
         add(nameLabel, formConstrain);
@@ -95,7 +102,7 @@ public class Form extends JPanel {
         setCurrentPosition(0, 1);
         add(nameTextField, formConstrain);
 
-        // second row //
+        // 2nd row //
         formConstrain.anchor = GridBagConstraints.FIRST_LINE_END;
         setCurrentPosition(1, 0);
         add(ageLabel, formConstrain);
@@ -113,11 +120,29 @@ public class Form extends JPanel {
         setCurrentPosition(2, 1);
         add(sexComboBox, formConstrain);
 
-        // fourth row ///
+        // 4th row //
+        formConstrain.anchor = GridBagConstraints.LINE_END;
+        setCurrentPosition(3, 0);
+        add(citizenshipLabel, formConstrain);
+
+        formConstrain.anchor = GridBagConstraints.LINE_START;
+        setCurrentPosition(3, 1);
+        add(citizenshipCheckBox, formConstrain);
+
+        // 5th row ///
+        formConstrain.anchor = GridBagConstraints.LINE_END;
+        setCurrentPosition(4, 0);
+        add(taxLabel, formConstrain);
+
+        formConstrain.anchor = GridBagConstraints.LINE_START;
+        setCurrentPosition(4, 1);
+        add(taxField, formConstrain);
+
+        // 6th row ///
         // lets change the weight of the row to make it take more space and push other elements to the top
         formConstrain.weighty = 2;
         formConstrain.anchor = GridBagConstraints.LINE_END;
-        setCurrentPosition(3, 0);
+        setCurrentPosition(5, 0);
         add(okButton, formConstrain);
 
 
