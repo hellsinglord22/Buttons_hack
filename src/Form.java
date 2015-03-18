@@ -64,14 +64,8 @@ public class Form extends JPanel {
         sexModel.addElement("others");
         sexComboBox.setModel(sexModel);
 
-
-        // properties //
-        setLayout(new GridBagLayout());
-        setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
-
-        layoutComponents();
-
-        ///ELEMENT'S BEHAVIOUR ///
+        /// Buttons properties ///
+        // add a behaviour to the 'OK' button //
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -81,6 +75,12 @@ public class Form extends JPanel {
                 System.out.println("Sex: " + sex + "\n");
             }
         });
+
+        // properties //
+        setLayout(new GridBagLayout());
+        setBorder(BorderFactory.createCompoundBorder(outerBorder, innerBorder));
+
+        layoutComponents();
 
     }
 
