@@ -64,6 +64,21 @@ public class Form extends JPanel {
         sexModel.addElement("others");
         sexComboBox.setModel(sexModel);
 
+        // taxLabel and field properties //
+        taxLabel.setEnabled(false);
+        taxField.setEnabled(false);
+
+        //Citizenship checkBox properties //
+        // CheckBox behaviour ///
+        citizenshipCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                boolean isTicked = citizenshipCheckBox.isSelected();
+                taxLabel.setEnabled(isTicked);
+                taxField.setEnabled(isTicked);
+            }
+        });
+
         /// Buttons properties ///
         // add a behaviour to the 'OK' button //
         okButton.addActionListener(new ActionListener() {
